@@ -12,7 +12,7 @@
     $('#worldmap').append(map_svg);
 
     var tooltip = jQuery('<div id="tooltip" style="display: none; position: absolute;"><p>text</p></div>');
-    $('#worldmap').before(tooltip);
+    $('body').prepend(tooltip);
 
     var tooltip_template = "<h4>{thedunce}</h4> \
         <h5>{themistake}</h5> \
@@ -40,17 +40,14 @@
     var configure_worldmap = function(dataset) {
         for (var i =0; i < dataset.length; i++) {
             var data = dataset[i];
-            console.log(data);
 
             if (!data.tooltip) { continue; }
 
             var shape = jQuery('#' + data.tooltip);
             shape.attr('fill', '#6DCDE9');
-            shape.attr('class', 'has_tooltip');
+            document.getElementById(data.tooltip).setAttribute('class', 'has_tooltip');
 
             dust.render('tooltip', data, function(err, out) {
-                console.log(err);
-                console.log(out);
                 shape.attr('data-tooltip', out);
             });
 
@@ -63,7 +60,6 @@
                     .css('top', e.pageY + 10)
                     .css('display', 'block')
                     .html(jQuery(this).attr('data-tooltip'));
-                console.log(jQuery(this).attr('data-tooltip'));
             });
         }
     };

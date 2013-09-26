@@ -1,1 +1,1 @@
-#tooltip{background-color:white;border-radius:5px;border:2px solid black;padding:1em}#tooltip p{font-size:12px}svg path{fill:grey}svg path.has_tooltip{fill:#6dcde9}
+#tooltip{background-color:white;border-radius:5px;border:2px solid black;padding:1em;z-index:9001}#tooltip p{font-size:12px}svg path{fill:grey}svg path.has_tooltip{fill:#6dcde9}
