@@ -506,10 +506,15 @@ svg path.has_tooltip {
             var data = dataset[i];
 
             if (!data.tooltip) { continue; }
+            var dumb_shape = document.getElementById(data.tooltip)
+            if (!dumb_shape) { continue; }
+
+            if (dumb_shape) {
+                dumb_shape.setAttribute('class', 'has_tooltip');
+            }
 
             var shape = jQuery('#' + data.tooltip);
             shape.attr('fill', '#6DCDE9');
-            document.getElementById(data.tooltip).setAttribute('class', 'has_tooltip');
 
             dust.render('tooltip', data, function(err, out) {
                 shape.attr('data-tooltip', out);
@@ -525,9 +530,53 @@ svg path.has_tooltip {
                     .css('display', 'block')
                     .html(jQuery(this).attr('data-tooltip'));
             });
-        }
-    };
+            shape.click(function(e){
+                console.log('click');
+                for (var i =0; i < dataset.length; i++) {
+                    var data = dataset[i];
 
+                    if (!data.tooltip) { continue; }
+                    var shape = $('#' + data.tooltip);
+                    shape.unbind('mouseout');
+                    shape.unbind('mousemove');
+                }
+                tooltip.css('left', e.pageX + 10)
+                    .css('top', e.pageY + 10)
+                    .css('display', 'block')
+                    .html(jQuery(this).attr('data-tooltip'));
+                
+                if(e.stopPropagation) {
+                    e.stopPropagation();
+                } else {
+                    e.cancelBubble = true;
+                }
+                return false;
+            });
+
+
+        }
+
+        $(document).click(function() {
+            for (var i =0; i < dataset.length; i++) {
+                var data = dataset[i];
+
+                if (!data.tooltip) { continue; }
+
+                var shape = $('#' + data.tooltip);
+
+                shape.bind('mousemove', function(e){
+                  tooltip.css('left', e.pageX + 10)
+                    .css('top', e.pageY + 10)
+                    .css('display', 'block')
+                    .html($(this).attr('data-tooltip'));
+                });
+                shape.bind('mouseout', function(){
+                  tooltip.css('display', 'none');
+                });
+                tooltip.css('display', 'none');
+            }
+        });
+    };
 
 }(jQuery));
 </script>
