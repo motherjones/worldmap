@@ -1,0 +1,16 @@
+/* YEEEEAAAHHH I EXIST */
+#tooltip {
+  background-color: white;
+  border-radius: 5px;
+  border: 2px solid black;
+  padding: 1em;
+}
+#tooltip p {
+  font-size: 12px;
+}
+svg path {
+  fill: grey;
+}
+svg path.has_tooltip {
+  fill: #6DCDE9;
+}
