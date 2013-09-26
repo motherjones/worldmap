@@ -1,10 +1,6 @@
-/*
- * worldmap
- * https://github.com/motherjones/worldmap
- *
- * Copyright (c) 2013 Mother Jones Data Desk
- * Licensed under the MIT license.
- */
+/*! Worldmap - v0.1.0 - 2013-09-26
+* https://github.com/motherjones/worldmap
+* Copyright (c) 2013 Mother Jones Data Desk; Licensed MIT */
 "use strict";
 
 (function($) {
