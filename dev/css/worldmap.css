@@ -6,7 +6,7 @@
   padding: 1em;
   z-index: 9001;
   max-width: 20%;
-  font-size: 1.1em;
+  line-height: 1.5em;
 }
 #tooltip p {
   margin: 0px;
@@ -18,8 +18,8 @@
   margin-top: 1em;
 }
 svg path {
-  fill: grey;
+  fill: #E2E2E2;
 }
 svg path.has_tooltip {
-  fill: #6DCDE9;
+  fill: #66AEF3;
 }
