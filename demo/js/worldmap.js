@@ -10,11 +10,10 @@
     var tooltip = jQuery('<div id="tooltip" style="display: none; position: absolute;"><p>text</p></div>');
     $('body').prepend(tooltip);
 
-    var tooltip_template = "<h4>{thedunce}</h4> \
-        <h5>{themistake}</h5> \
-        <p>{whyitswrong}</p> \
-        <p><a href='{source1}'>{source1}</a></p> \
-    ";
+    var tooltip_template = ' <p class="quote">{themistake}</p> \
+        <span>—<a href="{source1}">{thedunce}</a>, {when}</span> \
+		<p class="wrong">{whyitswrong}</p> \
+    ';
     var compiled_tooltip = dust.compile(tooltip_template, 'tooltip');
     dust.loadSource(compiled_tooltip);
 
@@ -56,8 +55,13 @@
                 tooltip.css('display', 'none');
             });
             shape.bind('mousemove', function(e){
+                var width = tooltip.outerWidth();
+                var left = e.pageX + 10
+                if ( e.pageX + width > jQuery('#worldmap').outerWidth() + jQuery('#worldmap').offset().left ) {
+                    left = e.pageX - width - 10;
+                }
                 tooltip
-                    .css('left', e.pageX + 10)
+                    .css('left', left)
                     .css('top', e.pageY + 10)
                     .css('display', 'block')
                     .html(jQuery(this).attr('data-tooltip'));
