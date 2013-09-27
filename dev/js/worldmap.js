@@ -8,15 +8,15 @@
 "use strict";
 
 (function($) {
-    var map_svg = $(worldmap);
+    var map_svg = $(world_map);
     $('#worldmap').append(map_svg);
 
     var tooltip = jQuery('<div id="tooltip" style="display: none; position: absolute;"><p>text</p></div>');
     $('body').prepend(tooltip);
 
     var tooltip_template = ' <p class="quote">{themistake}</p> \
-        <span>—<a href="{source1}">{thedunce}</a></span> \
-		<p class="wrong"><b>Why it\'s wrong:</b> {whyitswrong}</p> \
+        <span>—<a href="{source1}">{thedunce}</a>, {when}</span> \
+		<p class="wrong">{whyitswrong}</p> \
     ';
     var compiled_tooltip = dust.compile(tooltip_template, 'tooltip');
     dust.loadSource(compiled_tooltip);
@@ -66,7 +66,6 @@
                     .html(jQuery(this).attr('data-tooltip'));
             });
             shape.click(function(e){
-                console.log('click');
                 for (var i =0; i < dataset.length; i++) {
                     var data = dataset[i];
 
