@@ -8,7 +8,7 @@
 "use strict";
 
 (function($) {
-    var map_svg = $(worldmap);
+    var map_svg = $(world_map);
     $('#worldmap').append(map_svg);
 
     var tooltip = jQuery('<div id="tooltip" style="display: none; position: absolute;"><p>text</p></div>');
@@ -67,7 +67,6 @@
                     .html(jQuery(this).attr('data-tooltip'));
             });
             shape.click(function(e){
-                console.log('click');
                 for (var i =0; i < dataset.length; i++) {
                     var data = dataset[i];
 
