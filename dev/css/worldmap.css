@@ -11,6 +11,10 @@
 #tooltip p {
   margin: 0px;
 }
+#tooltip a {
+  font-style: bold;
+  text-decoration: underline;
+}
 #tooltip .quote {
   font-style: italic;
 }
