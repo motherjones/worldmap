@@ -59,8 +59,13 @@
                 tooltip.css('display', 'none');
             });
             shape.bind('mousemove', function(e){
+                var width = tooltip.outerWidth();
+                var left = e.pageX + 10
+                if ( e.pageX + width > 630 ) {
+                    left = e.pageX - width - 10;
+                }
                 tooltip
-                    .css('left', e.pageX + 10)
+                    .css('left', left)
                     .css('top', e.pageY + 10)
                     .css('display', 'block')
                     .html(jQuery(this).attr('data-tooltip'));
