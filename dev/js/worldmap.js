@@ -61,6 +61,8 @@
             shape.bind('mousemove', function(e){
                 var width = tooltip.outerWidth();
                 var left = e.pageX + 10
+                console.log(e.pageX + width)
+                console.log(jQuery('#worldmap').outerWidth() + jQuery('#worldmap').offset().left)
                 if ( e.pageX + width > jQuery('#worldmap').outerWidth() + jQuery('#worldmap').offset().left ) {
                     left = e.pageX - width - 10;
                 }
