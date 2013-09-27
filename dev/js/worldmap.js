@@ -15,7 +15,7 @@
     $('body').prepend(tooltip);
 
     var tooltip_template = ' <p class="quote">{themistake}</p> \
-        <span>—<a href="{source1}">{thedunce}</a>, {when}</span> \
+        <span>— <a href="{source1}">{thedunce}</a>, {when}</span> \
 		<p class="wrong">{whyitswrong}</p> \
     ';
     var compiled_tooltip = dust.compile(tooltip_template, 'tooltip');
