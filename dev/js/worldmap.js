@@ -14,11 +14,10 @@
     var tooltip = jQuery('<div id="tooltip" style="display: none; position: absolute;"><p>text</p></div>');
     $('body').prepend(tooltip);
 
-    var tooltip_template = "<h4>{thedunce}</h4> \
-        <h5>{themistake}</h5> \
-        <p>{whyitswrong}</p> \
-        <p><a href='{source1}'>{source1}</a></p> \
-    ";
+    var tooltip_template = ' <p class="quote">{themistake}</p> \
+        <span>—<a href="{source1}">{thedunce}</a></span> \
+		<p class="wrong"><b>Why it\'s wrong:</b> {whyitswrong}</p> \
+    ';
     var compiled_tooltip = dust.compile(tooltip_template, 'tooltip');
     dust.loadSource(compiled_tooltip);
 

@@ -5,9 +5,13 @@
   border: 2px solid black;
   padding: 1em;
   z-index: 9001;
+  max-width: 20%;
 }
 #tooltip p {
-  font-size: 12px;
+  margin: 0px;
+}
+#tooltip .wrong {
+  margin-top: 1em;
 }
 svg path {
   fill: grey;
